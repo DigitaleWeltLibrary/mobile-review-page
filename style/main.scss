@@ -1,0 +1,232 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  a {
+    color: hsl(228, 45%, 44%);
+  }
+}
+
+@mixin mq() {
+  @media (width > 900px) {
+    @content;
+  }
+}
+html {
+  overflow: hidden;
+}
+* {
+  margin: 0;
+}
+header {
+  z-index: -100;
+  position: absolute;
+  top: -250px;
+  left: -500px;
+  svg {
+    height: 80dvh;
+    transform: rotate(40deg);
+    @include mq() {
+      height: 100dvh;
+    }
+  }
+}
+main {
+  min-height: 100dvh;
+
+  @include mq() {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    section {
+      width: 50%;
+      display: block;
+      margin: auto !important;
+    }
+  }
+  .text {
+    padding: 0 20px;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    h1 {
+      color: hsl(271, 36%, 24%);
+      text-align: center;
+      font-size: 2rem;
+      margin: 20px 0;
+      @include mq() {
+        text-align: left;
+      }
+    }
+    p {
+      text-align: justify;
+      text-wrap: balance;
+      font-size: 18px;
+      color: hsl(270, 7%, 64%);
+    }
+  }
+
+  .mobile {
+    display: block;
+    margin: 20px auto;
+    width: 325px;
+    height: fit-content;
+    border: 10px solid hsl(0, 0%, 100%);
+    border-radius: 2rem;
+    overflow: hidden;
+    background-color: hsl(270, 20%, 96%);
+    .mobile-screen {
+      padding: 0 10px;
+      .mobile-message {
+        $oben: 5px;
+        p {
+          width: 70%;
+          font-size: 15px;
+          padding: 5px;
+          margin: $oben 0 0 0;
+          &.pink {
+            background-color: hsl(276, 100%, 81%);
+            border-radius: 1rem 1rem 1rem 0;
+          }
+          &.other {
+            display: block;
+            margin: $oben 0 0 auto;
+            background-color: hsl(0, 0%, 100%);
+            border-radius: 1rem 1rem 0 1rem;
+          }
+        }
+        .imgs {
+          display: flex;
+
+          margin: $oben 0 0 45%;
+          img {
+            margin: 0 0 0 10px;
+            border-radius: 1rem;
+            object-fit: contain;
+            height: 50px;
+            aspect-ratio: 1/1;
+          }
+        }
+
+        .offer {
+          width: calc(70% - 40px);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 2rem 2rem 2rem 0;
+          background: linear-gradient(
+            to right,
+            hsl(293, 100%, 63%),
+            hsl(264, 100%, 61%)
+          );
+          padding: 5px 20px;
+          margin: $oben 0 0 0;
+          span {
+            height: 15px;
+            aspect-ratio: 1/1;
+            border: hsl(270, 7%, 64%) 2px solid;
+            border-radius: 100%;
+          }
+          p {
+            width: max-content;
+            &.time {
+              font-size: 15px;
+              width: 60%;
+              text-align: start;
+              color: hsl(206, 6%, 79%);
+            }
+            &.price {
+              color: hsl(0, 0%, 100%);
+            }
+          }
+        }
+      }
+
+      .mobile-footer {
+        background-color: hsl(0, 0%, 100%);
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px 10px;
+        height: 30px;
+        margin: 10px 0 20px;
+        p {
+          color: hsl(270, 7%, 64%);
+        }
+        button {
+          height: 30px;
+          aspect-ratio: 1/1;
+          border-radius: 100%;
+
+          border: none;
+          background-color: hsl(271, 36%, 24%);
+          svg {
+            display: block;
+            margin: auto;
+            fill: hsl(0, 0%, 100%);
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    .mobile-header {
+      height: 90px;
+      background: linear-gradient(
+        to right,
+        hsl(264, 100%, 61%),
+        hsl(293, 100%, 63%)
+      );
+      width: 100%;
+      border-radius: 0 0 1rem 1rem;
+      .mobile-cam {
+        display: block;
+        margin: 0 auto;
+        height: 30px;
+        border-radius: 0 0 2rem 2rem;
+        width: 60%;
+        background-color: #fff;
+      }
+
+      .mobile-header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 10px 20px 30px;
+        height: 40px;
+        svg {
+          fill: hsl(0, 0%, 100%);
+        }
+        div {
+          width: 80%;
+          display: flex;
+          flex-wrap: nowrap;
+          img {
+            border: 2px solid hsl(0, 0%, 100%);
+            border-radius: 100%;
+            object-fit: contain;
+            height: 40px;
+            margin: 0 10px 0 0;
+          }
+
+          span {
+            display: flex;
+            flex-direction: column;
+            p {
+              color: hsl(0, 0%, 100%);
+              &.username {
+                font-size: 18px;
+                padding: 0 0 1px;
+              }
+              &.online {
+                font-size: 14px;
+                color: hsl(270, 7%, 64%);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
